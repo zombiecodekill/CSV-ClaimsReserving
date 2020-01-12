@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" asp-href-include="css/*" asp-href-exclude="css/all.min.css">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" asp-href-include="css/all.min.css" />
+    </environment>
+</head>
+<body>
+    <img alt="Logo" src="~/img/220px-Willis_Towers_Watson_logo.svg.png" />
+    <div>
+        <h1>Claims Reserving CSV Processor</h1>
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model ClaimsReserving.Models.Defects
+
+@{
+    ViewData["Title"] = "Defects Found";
+}
+
+<p>The selected file @Model.FileName contains the following errors:</p>
+
+
+
+@foreach (var error in @Model.Errors)
+{
+    <p>@error</p>
+}
+
+@if (@Model.Warnings.Any())
+{
+    <p>And the following warnings:</p>
+
+    @foreach (var warning in @Model.Warnings)
+    {
+        <p>@warning</p>
+    }
+}
+
+@if (@Model.FileName != null)
+{
+    <p>To produce the output file, please correct the above defects for @Model.FileName and then try again.</p>
+}
+
+<a class="green button" asp-controller="Claims" asp-action="Index">Back to Home Screen</a>

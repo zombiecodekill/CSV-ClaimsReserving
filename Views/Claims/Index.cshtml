@@ -1,0 +1,23 @@
+﻿@using ClaimsReserving.Models
+@model CsvModel
+
+
+
+<p>
+    CSV files are picked up from the InputFiles directory.
+    InputFilesDirectory is a config which is set in appsettings.json.
+</p>
+
+<p>Click on a filename to process it and create the corresponding output CSV file</p>
+
+
+<p>
+    @Model.FilesFoundMessage
+</p>
+
+<form>
+    @foreach (var file in @Model.Files)
+    {
+        <div><button type="submit" class="green button" asp-action="ProcessFile" asp-route-Id="@file.Id">@file.Name</button></div>
+    }
+</form>
